@@ -34,7 +34,7 @@ Le projet est divisé en deux parties :
 
 ## Avancement de la partie 1
 
-### ✅ Étape 1 : Initier le projet
+### Étape 1 : Initier le projet
 
 - [x] Créer une équipe de 2 à 4 personnes
 - [x] Réfléchir à une application composée de plusieurs services
@@ -45,13 +45,13 @@ Le projet est divisé en deux parties :
 ### Étape 2 : Définir les services
 
 - [x] Définir les services
-- [ ] Définir les commandes associées (demandes de traitement) en JSON
+- [x] Définir les commandes associées (demandes de traitement) en JSON
 
-### ✅ Étape 3 : Définir les agrégats des services
+### Étape 3 : Définir les agrégats des services
 
 - [x] Définir les agrégats en JSON
 
-### ✅ Étape 4 et 5: Découpler les services
+### Étape 4 et 5: Découpler les services
 
 - [x] Définir les événements entre services
 - [x] Définir en JSON l'agrégat répliqué (réplication de tout ou partie des données du service émetteur)
@@ -69,7 +69,7 @@ Le projet est divisé en deux parties :
 - [x] Transformer les données du réplica pour les préparer à un nouveau service
 - [x] Alimenter le nouveau service par des événements
 - [x] Définir l'agrégat de la projection en JSON
-- [ ] Définir la requête qui interroge la projection
+- [x] Définir la requête qui interroge la projection
 
 ---
 
@@ -77,7 +77,7 @@ Le projet est divisé en deux parties :
 
 ### Niveau 1 : bases remplies et interrogeables (sans programmation)
 
-- [ ] Choisir et justifier les deux bases NoSQL (Redis + MongoDB)
+- [x] Choisir et justifier les deux bases NoSQL (Redis et MongoDB)
 - [x] Redis : agrégat Stock, files d'événements, persistance AOF
 - [ ] MongoDB : agrégat Commande, réplica Livraison, projection order-view
 - [ ] Remplir les deux bases en ligne de commande
