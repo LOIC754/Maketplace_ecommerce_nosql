@@ -1,0 +1,11 @@
+# Fins de ligne LF forcées pour les scripts de chargement des bases :
+# sous Windows, un CRLF ajouterait un \r invisible à la dernière valeur de chaque ligne.
+
+# Scripts redis-cli (Redis)
+*.redis text eol=lf
+
+# Scripts mongosh (MongoDB)
+*.js    text eol=lf
+
+# Scripts shell
+*.sh    text eol=lf
