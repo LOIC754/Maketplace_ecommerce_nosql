@@ -1,0 +1,28 @@
+- Tâche 1 : créer l'équipe, le dépôt Git et inviter le prof ✅
+- Tâche 2 : définir les motifs d'accès (écritures W1 à W5, lectures R1 à R4, volumétrie) ✅
+- Tâche 3 : définir les services et leurs commandes en JSON ✅
+- Tâche 4 : définir les agrégats Commande, Stock et Livraison en JSON ✅
+- Tâche 5 : définir les événements et le réplica de la Commande dans Livraison ✅
+- Tâche 6 : définir la projection `order_view`, ses index et ses requêtes ✅
+- Tâche 7 : choisir et justifier les bases NoSQL, puis les arbitrages CAP / PACELC ✅
+- Tâche 8 : mettre en place l'infrastructure avec `docker-compose.yml` (Redis et MongoDB)✅
+- Tâche 9 : charger le stock des produits dans Redis avec un script reproductible✅
+- Tâche 10 : charger les commandes dans MongoDB (`order_db.orders`) avec un script reproductible
+- Tâche 11 : créer les index MongoDB
+- Tâche 12 : faire circuler les événements dans Redis (publication, routage, files `ready`, `processing`, `processed`, archive)
+- Tâche 13 : réserver le stock dans Redis et tester le cas de survente
+- Tâche 14 : créer puis mettre à jour le réplica dans MongoDB (`delivery_db.order_replicas`) à partir des événements
+- Tâche 15 : créer les livraisons dans MongoDB (`delivery_db.deliveries`)
+- Tâche 16 : construire la projection dans MongoDB (`query_db.order_views`)
+- Tâche 17 : tester l'idempotence (un événement reçu deux fois n'est appliqué qu'une fois)
+- Tâche 18 : tester la persistance (redémarrer les deux bases et vérifier les données)
+- Tâche 19 : écrire et exécuter les requêtes d'interrogation R1 à R4, avec captures
+- Tâche 20 : documenter le niveau 1 dans le README (commandes, résultats, captures)
+- Tâche 21 (niveau 2, optionnel) : programmer `orderService` en Spring Boot
+- Tâche 22 (niveau 2) : programmer le routeur d'événements
+- Tâche 23 (niveau 2) : programmer `stockService`
+- Tâche 24 (niveau 2) : programmer `deliveryService`
+- Tâche 25 (niveau 2) : programmer `orderQueryService`
+- Tâche 26 : rédiger le rapport PDF (objet de l'application, structures de données, bases NoSQL et justification)
+- Tâche 27 : vérifier le dépôt Git final (README à jour, scripts, captures)
+- Tâche 28 : déposer le projet sur Moodle avant le 15 novembre

@@ -1,0 +1,7 @@
+DEL stock:PROD-1 stock:PROD-2 stock:PROD-3 stock:PROD-4 stock:PROD-5 stock:products
+HSET stock:PROD-1 productId PROD-1 name "Baskets urbaines" price 25.0 available 3 reserved 0 updatedAt 2026-10-29T09:00:00Z
+HSET stock:PROD-2 productId PROD-2 name "Casque audio" price 79.0 available 10 reserved 0 updatedAt 2026-10-29T09:00:00Z
+HSET stock:PROD-3 productId PROD-3 name "Sac a dos 20L" price 39.0 available 0 reserved 0 updatedAt 2026-10-29T09:00:00Z
+HSET stock:PROD-4 productId PROD-4 name "Montre connectee" price 149.0 available 5 reserved 0 updatedAt 2026-10-29T09:00:00Z
+HSET stock:PROD-5 productId PROD-5 name "Gourde isotherme" price 15.0 available 50 reserved 0 updatedAt 2026-10-29T09:00:00Z
+SADD stock:products PROD-1 PROD-2 PROD-3 PROD-4 PROD-5
