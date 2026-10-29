@@ -1,0 +1,38 @@
+# Nom du projet : fixe le nom des volumes, quel que soit le nom du dossier
+name: marketplace-nosql
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: mkt-redis
+    ports:
+      - "6380:6379"                 # 6380 sur la machine ,6379 dans le conteneur
+    volumes:
+      - redis-data:/data            # persistance des données Redis
+    # AOF activé donc aucune éviction de clé quand la mémoire est pleine
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy noeviction
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 5
+    networks: [mkt-network]
+
+  mongodb:
+    image: mongo:7
+    container_name: mkt-mongodb
+    ports:
+      - "27018:27017"               # 27018 sur la machine  27017 dans le conteneur
+    volumes:
+      - mongo-data:/data/db         # persistance des données MongoDB
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      retries: 6
+    networks: [mkt-network]
+
+volumes:
+  redis-data:
+  mongo-data:
+
+networks:
+  mkt-network:
