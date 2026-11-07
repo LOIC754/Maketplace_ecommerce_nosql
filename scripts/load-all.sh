@@ -39,4 +39,9 @@ redis 08-delivery-ack-shipped-event.redis
 mongo 06-order-shipped.js
 redis 09-order-ack-shipped.redis
 
+# Query construit la projection order_views
+redis 10-query-take.redis
+mongo 07-query-projection.js
+redis 11-query-ack.redis
+
 echo ">>> Scénario chargé"
