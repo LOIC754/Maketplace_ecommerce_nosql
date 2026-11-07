@@ -1,0 +1,4 @@
+LMOVE shop:order:ready shop:order:processing LEFT RIGHT
+LMOVE shop:order:ready shop:order:processing LEFT RIGHT
+LMOVE shop:order:ready shop:order:processing LEFT RIGHT
+LMOVE shop:order:ready shop:order:processing LEFT RIGHT

@@ -1,0 +1,1 @@
+LREM shop:order:processing 1 '{"eventId":"evt-0010","eventType":"OrderShipped","eventVersion":1,"occurredAt":"2026-10-29T14:00:00Z","emitter":"Livraison","aggregateId":"LIV-1","payload":{"orderId":"CMD-1","deliveryId":"LIV-1","carrier":"Colissimo","trackingNumber":"6A12345678901"}}'
