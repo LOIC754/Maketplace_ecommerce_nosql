@@ -6,10 +6,10 @@ services:
     image: redis:7-alpine
     container_name: mkt-redis
     ports:
-      - "6380:6379"                 # 6380 sur la machine ,6379 dans le conteneur
+      - "6380:6379"                 # 6380 sur la machine → 6379 dans le conteneur
     volumes:
       - redis-data:/data            # persistance des données Redis
-    # AOF activé donc aucune éviction de clé quand la mémoire est pleine
+    # AOF activé + aucune éviction de clé quand la mémoire est pleine
     command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy noeviction
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -21,13 +21,32 @@ services:
     image: mongo:7
     container_name: mkt-mongodb
     ports:
-      - "27018:27017"               # 27018 sur la machine  27017 dans le conteneur
+      - "27018:27017"               # 27018 sur la machine → 27017 dans le conteneur
     volumes:
       - mongo-data:/data/db         # persistance des données MongoDB
     healthcheck:
       test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
       interval: 10s
       retries: 6
+    networks: [mkt-network]
+
+  order-service:
+    build:
+      context: .
+      dockerfile: orderService/Dockerfile
+    container_name: mkt-order-service
+    ports:
+      - "8082:8081"                 # 8082 sur la machine → 8081 dans le conteneur
+    environment:
+      # Dans le réseau Docker, chaque service est joignable par son nom
+      MONGODB_URI: mongodb://mongodb:27017/order_db
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
     networks: [mkt-network]
 
 volumes:

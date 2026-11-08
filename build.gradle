@@ -1,0 +1,22 @@
+// Configuration commune à tous les services (même modèle que le dépôt de l'enseignant)
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0' apply false
+    id 'io.spring.dependency-management' version '1.1.4' apply false
+}
+
+allprojects {
+    group = 'com.marketplace'
+    version = '0.0.1-SNAPSHOT'
+    repositories { mavenCentral() }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    java { sourceCompatibility = '21' }
+
+    tasks.named('test') { useJUnitPlatform() }
+}
