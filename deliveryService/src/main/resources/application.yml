@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: delivery-service
+  data:
+    mongodb:
+      # En local : MongoDB exposé sur 27018 ; dans Docker Compose : mongodb:27017
+      uri: ${MONGODB_URI:mongodb://localhost:27018/delivery_db}
+    redis:
+      # En local : Redis exposé sur 6380 ; dans Docker Compose : redis:6379
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6380}
+
+# Délai entre deux lectures de la file shop:delivery:ready (millisecondes)
+delivery:
+  consumer:
+    poll-delay-ms: 500

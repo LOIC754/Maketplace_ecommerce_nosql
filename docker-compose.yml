@@ -77,7 +77,25 @@ services:
         condition: service_healthy
     networks: [mkt-network]
 
-  # >>> Les prochains services (livraison, query) s'ajouteront ICI <<<
+  delivery-service:
+    build:
+      context: .
+      dockerfile: deliveryService/Dockerfile
+    container_name: mkt-delivery-service
+    ports:
+      - "8084:8081"                 # 8084 sur la machine → 8081 dans le conteneur
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/delivery_db
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    networks: [mkt-network]
+
+  # >>> Le prochain service (query) s'ajoutera ICI <<<
 
 volumes:
   redis-data:
