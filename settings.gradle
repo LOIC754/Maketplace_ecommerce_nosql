@@ -2,6 +2,6 @@ rootProject.name = 'marketplace-nosql'
 
 // Services programmés (niveau 2)
 include 'orderService'          // Service Commande : MongoDB (order_db) + événements Redis
-// include 'stockService'       // Service Stock (tâche 23)
+include 'stockService'          // Service Stock : stock et événements dans Redis
 // include 'deliveryService'    // Service Livraison (tâche 24)
 // include 'orderQueryService'  // Service Query (tâche 25)

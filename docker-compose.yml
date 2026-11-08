@@ -62,7 +62,22 @@ services:
         condition: service_healthy
     networks: [mkt-network]
 
-  # >>> Les prochains services (stock, livraison, query) s'ajouteront ICI <<<
+  stock-service:
+    build:
+      context: .
+      dockerfile: stockService/Dockerfile
+    container_name: mkt-stock-service
+    ports:
+      - "8083:8081"                 # 8083 sur la machine → 8081 dans le conteneur
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks: [mkt-network]
+
+  # >>> Les prochains services (livraison, query) s'ajouteront ICI <<<
 
 volumes:
   redis-data:

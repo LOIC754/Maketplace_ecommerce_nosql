@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: stock-service
+  data:
+    redis:
+      # En local : Redis exposé sur 6380 ; dans Docker Compose : redis:6379
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6380}
+
+# Délai entre deux lectures de la file shop:stock:ready (millisecondes)
+stock:
+  consumer:
+    poll-delay-ms: 500
