@@ -95,7 +95,23 @@ services:
         condition: service_healthy
     networks: [mkt-network]
 
-  # >>> Le prochain service (query) s'ajoutera ICI <<<
+  order-query-service:
+    build:
+      context: .
+      dockerfile: orderQueryService/Dockerfile
+    container_name: mkt-order-query-service
+    ports:
+      - "8085:8081"                 # 8085 sur la machine → 8081 dans le conteneur
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/query_db
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    networks: [mkt-network]
 
 volumes:
   redis-data:

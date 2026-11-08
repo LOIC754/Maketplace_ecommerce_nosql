@@ -4,4 +4,4 @@ rootProject.name = 'marketplace-nosql'
 include 'orderService'          // Service Commande : MongoDB (order_db) + événements Redis
 include 'stockService'          // Service Stock : stock et événements dans Redis
 include 'deliveryService'       // Service Livraison : réplica + livraisons dans MongoDB (delivery_db)
-// include 'orderQueryService'  // Service Query (tâche 25)
+include 'orderQueryService'  // Service Query (tâche 25)
